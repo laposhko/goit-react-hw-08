@@ -1,0 +1,21 @@
+.contact {
+  border: 1px black solid;
+  border-radius: 5px;
+  padding: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 75px;
+}
+
+.icon {
+  margin-right: 5px;
+}
+
+.deleteContainer {
+  height: 75px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+}
