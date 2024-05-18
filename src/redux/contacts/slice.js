@@ -2,6 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 import { toast } from "react-toastify";
 
 import { fetchContacts, addContact, deleteContact } from "./operations";
+import { logOut } from "../auth/operations";
 export const contactsSlice = createSlice({
   name: "contacts",
   initialState: {
@@ -20,6 +21,8 @@ export const contactsSlice = createSlice({
         state.loading.fetching = true;
       })
       .addCase(fetchContacts.fulfilled, (state, action) => {
+        state.error = false;
+
         state.loading.fetching = false;
         state.items = action.payload;
       })
@@ -52,6 +55,9 @@ export const contactsSlice = createSlice({
       .addCase(deleteContact.rejected, (state) => {
         state.loading.deleting = false;
         toast.error("Request error. Please try again");
+      })
+      .addCase(logOut.fulfilled, (state) => {
+        state.items = [];
       }),
 });
 export const contactsReducer = contactsSlice.reducer;
