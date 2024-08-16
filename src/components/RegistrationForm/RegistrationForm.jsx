@@ -7,6 +7,7 @@ import { useDispatch } from "react-redux";
 import { toast } from "react-toastify";
 export default function RegistrationForm() {
   const dispatch = useDispatch();
+  console.log("hello");
   const nameId = useId();
   const emailId = useId();
   const passwordId = useId();
@@ -19,6 +20,8 @@ export default function RegistrationForm() {
       .required("Required"),
   });
   function handleSubmit(values, actions) {
+    console.log(values);
+
     dispatch(register(values))
       .unwrap()
       .then(() => {

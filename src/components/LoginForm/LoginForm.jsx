@@ -17,7 +17,6 @@ export default function LoginForm() {
       .required("Required"),
   });
   function handleSubmit(values, actions) {
-    console.log(values);
     dispatch(logIn(values))
       .unwrap()
       .then(() => {
